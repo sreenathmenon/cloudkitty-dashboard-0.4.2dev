@@ -1,0 +1,74 @@
+{% load i18n  %}
+
+<h3>{% trans "Project Overview" %}</h3>
+
+<div class="info detail">
+  <h4>{% trans "Information" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Project Name" %}</dt>
+    <dd>{{ project.name }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ project.id }}</dd>
+    <dt>{% trans "Enabled" %}</dt>
+    <dd>{{ project.enabled|yesno|capfirst }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ project.description|default:_("None") }}</dd>
+    <dt>{% trans "Creation Date" %}</dt>
+    <dd>{{ project.creation_date|default:"-" }}</dd>
+    <dt>{% trans "Signup Date" %}</dt>
+    <dd>{{ project.signup_date|default:"-" }}</dd>
+  </dl>
+  <h4>{% trans "Address" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Street" %}</dt>
+    <dd>{{ project.address_street }}</dd>
+    <dt>{% trans "City" %}</dt>
+    <dd>{{ project.address_city }}</dd>
+    <dt>{% trans "State" %}</dt>
+    <dd>{{ project.address_state }}</dd>
+    <dt>{% trans "ZIP Code" %}</dt>
+    <dd>{{ project.address_zip }}</dd>
+    <dt>{% trans "Country" %}</dt>
+    <dd>{{ project.address_country }}</dd>
+  </dl>
+  <h4>{% trans "Billing" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Balance" %}</dt>
+    <dd>{{ project.billing_balance }}</dd>
+    <dt>{% trans "Credit" %}</dt>
+    <dd>{{ project.billing_credit }}</dd>
+    <dt>{% trans "Credit Card Holder" %}</dt>
+    <dd>{{ project.billing_cc_holder }}</dd>
+    <dt>{% trans "Credit Card Type" %}</dt>
+    <dd>{{ project.billing_cc_type }}</dd>
+    <dt>{% trans "Credit Card Number" %}</dt>
+    <dd>{{ project.billing_cc_number }}</dd>
+    <dt>{% trans "Credit Card Expire" %}</dt>
+    <dd>{{ project.billing_cc_expire }}</dd>
+  </dl>
+  {% if project.billing_credit_log %}
+  <h4>{% trans "Credit Log" %}</h4>
+  <hr class="header_rule">
+  <table class="project_credit_log" style="font-family: mono">
+    <tr>
+      <th style="padding: 2px 5px">Date</th>
+      <th style="padding: 2px 5px">User ID</th>
+      <th style="padding: 2px 5px">Username</th>
+      <th style="padding: 2px 5px">Amount</th>
+      <th style="padding: 2px 5px">Reason</th>
+    </tr>
+    {% for item in project.billing_credit_log %}
+    <tr>
+      <td style="padding: 2px 5px">{{ item.date }}</td>
+      <td style="padding: 2px 5px">{{ item.user_id }}</td>
+      <td style="padding: 2px 5px">{{ item.username }}</td>
+      <td style="padding: 2px 5px">{{ item.amount }}</td>
+      <td style="padding: 2px 5px">{{ item.reason }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+</div>

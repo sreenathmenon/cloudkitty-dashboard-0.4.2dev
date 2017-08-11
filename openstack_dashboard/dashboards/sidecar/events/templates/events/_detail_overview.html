@@ -1,0 +1,24 @@
+{% load i18n %}
+<h3>{% trans "Event Overview" %}</h3>
+<div class="status detail">
+    <h4>{% trans "Information" %}</h4>
+    <hr class="header_rule">
+    <dl class="dl-horizontal">
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ events.name|upper }}</dd>
+        <dt>{% trans "Node UUID" %}</dt>
+        <dd>{{ events.node_uuid }}</dd>
+        <dt>{% trans "Status" %}</dt>
+        <dd>{{ events.event_status| upper }}</dd>
+        <dt>{% trans "Created At" %}</dt>
+        <dd>{{ events.event_create_time }}</dd>
+        <dt>{% trans "Last updated" %}</dt>
+        <dd>{{ events.event_complete_time }}</dd>
+        <dt>{% trans "Event UUID" %}</dt>
+        <dd>{{ events.id }}</dd>
+        <dt>{% trans "VM Uuid" %}</dt>
+        <dd>{{events.vm_uuid_list}}</dd>
+        <dt>{% trans "Extra details:" %}</dt>
+        <dd>{{ events.extra}}</dd>
+    </dl>
+</div>

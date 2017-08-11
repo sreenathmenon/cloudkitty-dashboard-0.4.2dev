@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Add-Ons" %}{% endblock %}
+
+{% block main %}
+<div class="row-fluid">
+  <div class="span12">
+  {{ tab_group.render }}
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+if($(".page-header h1").html() == 'Tenant Add-Ons') {
+    $("#service_id").html("Tenant Id");
+    $("#mappings__action_createfieldmapping").html("Create Tenant Add-On");
+}
+else if($(".page-header h1").html() == "Instance Add-Ons") {
+    $("#service_id").html("Instance Id");
+    $("#mappings__action_createfieldmapping").html("Create Instance Add-On");
+}
+});
+
+$(function() {
+    var target = document.getElementById('modal_wrapper');
+    alert(target);
+    // create an observer instance
+var observer = new MutationObserver(function(mutations) {
+   alert("hi");
+  mutations.forEach(function(mutation) {
+    alert(mutation.type);
+  });    
+});
+ 
+// configuration of the observer:
+var config = { childList: true, subtree: true };
+ 
+// pass in the target node, as well as the observer options
+observer.observe(target, config);
+ 
+// later, you can stop observing
+//observer.disconnect();
+
+});
+
+</script>
+
+{% endblock %}
+
