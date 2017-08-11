@@ -1,0 +1,49 @@
+CHANGES
+=======
+
+* bugfix decimal import
+* bugfix _ import
+* Changed 7 days to week - cosmetic change
+* Implementation of rating dashboard
+* fix for #EN-494
+* bugfix localization of ratings (0.8->0,8) which breaks json
+* Change stack:true to stack:false
+* Fix the links in RPMs
+* spec file: fix the package name
+* Updated documentation
+* Set fallback URL for instance pricing
+* Updated to liberty requirements
+* Use the default `url` tag instead
+* Remove version from setup.cfg
+* Fixed static files for Liberty
+* Hashmap UI rework
+* Refactor Rating UI
+* Add UI for PyScripts rating module
+* Add details on rating modules
+* Fixed enabled files for Liberty release
+* Updated files to the new namespace
+* Update .gitreview for new namespace
+* Change ignore-errors to ignore_errors
+* Moving to Liberty cycle (0.5)
+
+0.4.1
+-----
+
+* Preparing release 0.4.1
+
+0.4.0
+-----
+
+* Update setup.cfg
+* Address some cosmetic issues on the dashboard
+* Removed dict comprehension for py26 compatibility
+* Provide a .spec file
+* Fix the pbr package name
+* Fixed bugs in reporting when no data was received
+* Changed fields order in Hashmap panel
+* Added support for new thresholds and groups
+* First reporting graphs
+* Rewrite of the whole dashboard
+* Add the link between the client and panels
+* Init the repo with common files
+* Added .gitreview
